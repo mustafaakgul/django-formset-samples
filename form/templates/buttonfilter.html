@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+{% csrf_token %}
+
+
+    <button value="e" name="gender" type="submit" >erkek</button>
+    <button value="k" name="gender" type="submit" >kadin</button>
+</form>
+{% for showdata in data %}
+<p>{{ showdata.id }}</p>
+    <p>{{ showdata.stname }}</p>
+    <p>{{ showdata.gender }}</p>
+
+
+{% endfor %}
+
+</body>
+</html>

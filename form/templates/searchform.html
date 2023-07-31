@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ form.type }}
+<select id="mainselect" onchange="Hide()"><option value="1">1</option><option value="2">2</option></select>
+
+<script>function Hide()
+{
+    if(document.getElementById('mainselect').options[document.getElementById('mainselect').selectedIndex].value == "1")
+    {
+         document.getElementById('a').style.display = 'none';
+         document.getElementById('b').style.display = '';
+    }else
+    {
+         document.getElementById('a').style.display = '';
+         document.getElementById('b').style.display = 'none'
+    }
+}
+</script>
+</body>
+</html>

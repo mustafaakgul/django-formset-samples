@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST">
+    {% csrf_token %}
+<input type="checkbox" value="python" class="chkvalues"/>python
+<input type="checkbox" value="java" class="chkvalues"/>java
+<input type="checkbox" value="c" class="chkvalues"/>c
+<input type="text" value="chkvalue" id="txtvalues">
+<input type="submit" value="insert" id="but1" onclick="return alert('added')">
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function ()
+        {
+           $('.chkvalues').click(function ()
+               {
+                    var txt="";
+                    $('.chkvalues:checked').each(function ()
+                        {
+                            txt+=$(this).val()+","
+                        }
+                    );
+                    txt = txt.substring(0,txt.length-1);
+                    $('#txtvalues').val(txt);
+               }
+           );
+        }
+    );
+</script>
+</body>
+</html>

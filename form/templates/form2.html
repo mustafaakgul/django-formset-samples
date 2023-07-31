@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="radio" name="type" value="1111" id="h" onclick="func2();"/>0 Human<br/>
+<input type="radio" name="type" value="2222" id="r"  onclick="func2();"/>1 Robot<br/>
+<input type="radio" name="type" value="3333" id="a" onclick="func2();"/>2 Animal<br/>
+
+<script>
+
+            // by name
+                function func()
+                {
+                    var type = document.getElementsByName("type");
+                    if(type[0].checked)
+                    {
+                        var val = type[0].value;
+                        alert(val);
+                    }
+
+                    else if(type[1].checked)
+                    {
+                        var val = type[1].value;
+                        alert(val);
+                    }
+
+                    else if(type[2].checked)
+                    {
+                        var val = type[2].value;
+                        alert(val);
+                    }
+                }
+
+                // by Id
+                 function func2()
+                {
+                    if(document.getElementById("h").checked)
+                    {
+                        var val = document.getElementById("h").value;
+                        alert(val);
+                    }
+
+                    else if(document.getElementById("r").checked)
+                    {
+                        var val = document.getElementById("r").value;
+                        alert(val);
+                    }
+
+                    else if(document.getElementById("a").checked)
+                    {
+                        var val = document.getElementById("a").value;
+                        alert(val);
+                    }
+                }
+
+        </script>
+</body>
+</html>

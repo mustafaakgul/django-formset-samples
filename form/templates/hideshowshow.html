@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+hide
+show
+{{ form }}
+
+<script>
+    (function($) {
+    $(function() {
+        var selectField = $('#id_Incident_Type'),
+            verified = $('#id_demonstration_reason');
+
+        function toggleVerified(value) {
+            if (value === 'Demonstration') {
+                verified.show();
+            } else {
+                verified.hide();
+            }
+        }
+
+        // show/hide on load based on pervious value of selectField
+        toggleVerified(selectField.val());
+
+        // show/hide on change
+        selectField.change(function() {
+            toggleVerified($(this).val());
+        });
+    });
+})(django.jQuery);
+</script>
+
+<script>
+django.jQuery(document).ready(function(){
+    if (django.jQuery('#id_withEndDate').is(':checked')) {
+         hide_date=false;
+    } else {
+         var elementDate = document.getElementsByClassName("form-row field-endDate");
+         var i;
+         for (i = 0; i < elementDate.length; i++) {
+            elementDate[i].style ="display: none!important";
+         }
+         var elementInformation = document.getElementsByClassName("form-row field-description");
+         var i;
+         for (i = 0; i < elementInformation.length; i++) {
+            elementInformation[i].style ="display: none!important";
+         }
+        hide_date=true;
+    }
+    django.jQuery("#id_withEndDate").click(function(){
+        hide_date=!hide_date;
+        if (hide_date) {
+            var elementDate = document.getElementsByClassName("form-row field-endDate");
+             var i;
+             for (i = 0; i < elementDate.length; i++) {
+                elementDate[i].style ="display: none!important";
+             }
+             var elementInformation = document.getElementsByClassName("form-row field-description");
+             var i;
+             for (i = 0; i < elementInformation.length; i++) {
+                elementInformation[i].style ="display: none!important";
+             }
+        } else {
+             var elementDate = document.getElementsByClassName("form-row field-endDate");
+             var i;
+             for (i = 0; i < elementDate.length; i++) {
+                elementDate[i].style ="display: block!important";
+             }
+             var elementInformation = document.getElementsByClassName("form-row field-description");
+             var i;
+             for (i = 0; i < elementInformation.length; i++) {
+                elementInformation[i].style ="display: block!important";
+             }
+        }
+    })
+})
+</script>
+</body>
+</html>

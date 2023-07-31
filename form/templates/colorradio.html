@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src=
+"https://code.jquery.com/jquery-1.12.4.min.js">
+    </script>
+    <style type="text/css">
+        .selectt {
+            color: #fff;
+            padding: 30px;
+            display: none;
+            margin-top: 30px;
+            width: 60%;
+            background: green
+        }
+
+        label {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+{% for result in col %}
+<input type="radio" value="{{ result.id }}" name="color" onclick="colnames()">{{ result.colorname }}
+{% endfor %}
+<input type="submit" value="Click" />
+<b style="color:green;" id="selectedcolorname"></b>
+<div id="disp" style=
+        "color:green; font-size:18px; font-weight:bold;">
+</div>
+
+
+
+ <div>
+            <label>
+                <input checked type="radio" name="colorRadio"
+                       value="C"> C</label>
+            <label>
+                <input type="radio" name="colorRadio"
+                       value="Cplus"> C++</label>
+            <label>
+                <input type="radio" name="colorRadio"
+                       value="Python"> Python</label>
+            <label>
+                <input type="radio" name="colorRadio"
+                       value="Java"> Java</label>
+        </div>
+        <div class="C selectt">
+          <strong>C</strong>
+          is a procedural programming language
+            {{ form }}
+        </div>
+        <div class="Cplus selectt">
+          <strong>C++</strong>
+          is a general purpose programming language
+        {{ form2 }}</div>
+        <div class="Python selectt">
+          <strong>Python</strong>
+          is a widely used general-purpose, high level
+          programming language.</div>
+        <div class="Java selectt">
+          <strong>Java</strong>
+          is a most popular programming language for
+          many years.
+        {{ form3 }}</div>
+
+
+
+<script type="text/javascript">
+    function colnames(){
+        colordisplay = document.querySelector('input[name=color]:checked').value;
+        var checkRadio = document.querySelector('input[name=color]:checked');
+        console.log(colordisplay)
+        console.log(checkRadio)
+        if(colordisplay == '1'){
+            document.getElementById("disp").innerHTML = "hello";
+        }
+        else if( colordisplay == '2'){
+            document.getElementById("disp").innerHTML = "hello2";
+        }
+        else if( colordisplay == '3'){
+            document.getElementById("disp").innerHTML = "hello3";
+        }
+        else{
+            document.getElementById("disp").innerHTML = "hello4";
+
+        }
+        /*if(checkRadio != null) {
+                document.getElementById("disp").innerHTML
+                    = checkRadio.value
+                    + " radio button checked";
+            }
+            else {
+                document.getElementById("disp").innerHTML
+                    = "No one selected";
+            }*/
+        document.querySelector("#selectedcolorname").textContent = 'the checked radio is' + colordisplay;
+    }
+</script>
+<script type="text/javascript">
+            $(document).ready(function() {
+                $('input[type="radio"]').click(function() {
+                    var inputValue = $(this).attr("value");
+                    var targetBox = $("." + inputValue);
+                    $(".selectt").not(targetBox).hide();
+                    $(targetBox).show();
+                    //alert("Radio button " + inputValue + " is selected");
+                });
+            });
+        </script>
+</body>
+</html>
