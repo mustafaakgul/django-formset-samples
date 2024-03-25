@@ -41,7 +41,7 @@ def user_profile(request, user_id):
             data.append(mem_dict)
         formset = FamilyMemberFormSet(initial=data)
 
-    return render(request, "profile.html", context={"form" : user_form, "formset" : formset, "user":user})
+    return render(request, "profile.html", context={"formset1" : user_form, "formset" : formset, "user":user})
 
 
 """
@@ -66,14 +66,14 @@ def user_profile(request):
             )
             formset = FamilyMemberFormSet(request.POST)
             if formset.is_valid():
-                for form in formset:
+                for formset1 in formset:
                    member = FamilyMember.objects.create(
-                       name=form.cleaned_data['name'],
-                       relationship=form.cleaned_data['relationship'],
+                       name=formset1.cleaned_data['name'],
+                       relationship=formset1.cleaned_data['relationship'],
                        user = user
                    )
     else:
         user_form = UserProfileaForm()
         formset = FamilyMemberFormSet()
 
-    return render(request, "profile.html", context={"form" : user_form, "formset" : formset})"""
+    return render(request, "profile.html", context={"formset1" : user_form, "formset" : formset})"""

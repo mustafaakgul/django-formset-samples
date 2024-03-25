@@ -42,16 +42,16 @@ def createOrder(request, pk):
 	OrderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'status'), extra=10 )
 	customer = Customer.objects.get(id=pk)
 	formset = OrderFormSet(queryset=Order.objects.none(),instance=customer)
-	#form = OrderForm(initial={'customer':customer})
+	#formset1 = OrderForm(initial={'customer':customer})
 	if request.method == 'POST':
 		#print('Printing POST:', request.POST)
-		#form = OrderForm(request.POST)
+		#formset1 = OrderForm(request.POST)
 		formset = OrderFormSet(request.POST, instance=customer)
 		if formset.is_valid():
 			formset.save()
 			return redirect('/')
 
-	context = {'form':formset}
+	context = {'formset1':formset}
 	return render(request, 'accounts/order_form.html', context)
 
 def updateOrder(request, pk):
@@ -65,7 +65,7 @@ def updateOrder(request, pk):
 			form.save()
 			return redirect('/')
 
-	context = {'form':form}
+	context = {'formset1':form}
 	return render(request, 'accounts/order_form.html', context)
 
 def deleteOrder(request, pk):

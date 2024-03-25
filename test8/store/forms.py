@@ -8,7 +8,7 @@ class BookForm(forms.Form):
     name = forms.CharField(
         label='Book Name',
         widget=forms.TextInput(attrs={
-            'class': 'form-control',
+            'class': 'formset1-control',
             'placeholder': 'Enter Book Name here'
         })
     )
@@ -24,7 +24,7 @@ class BookModelForm(forms.ModelForm):
         }
         widgets = {
             'name': forms.TextInput(attrs={
-                'class': 'form-control',
+                'class': 'formset1-control',
                 'placeholder': 'Enter Book Name here'
                 }
             )
@@ -38,7 +38,7 @@ BookModelFormset = modelformset_factory(
     extra=1,
     widgets={
         'name': forms.TextInput(attrs={
-            'class': 'form-control',
+            'class': 'formset1-control',
             'placeholder': 'Enter Book Name here'
             }
         )
@@ -50,7 +50,7 @@ AuthorFormset = modelformset_factory(
     fields=('name', ),
     extra=1,
     widgets={'name': forms.TextInput(attrs={
-            'class': 'form-control',
+            'class': 'formset1-control',
             'placeholder': 'Enter Author Name here'
         })
     }
