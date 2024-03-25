@@ -1,5 +1,5 @@
 """
-WSGI config for test10 project.
+WSGI config for formset5 project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'test10.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'formset5.settings')
 
 application = get_wsgi_application()
